@@ -1,0 +1,79 @@
+<% layout("/layouts/boilerPlate.ejs") %>
+
+        <!-- Old way to send the value from name field  -->
+
+        <!-- <form method="POST" action="/listings" >
+        <input type="text" placeholder="enter the title" name="title"/>
+        <br /><br />
+        <textarea type="text" placeholder="enter the description" name="description" ></textarea>
+        <br /><br />
+        <input type="text" placeholder="enter the image URL/LINK" name="image"/>
+        <br /><br />
+        <input type="number" placeholder="enter the price" name="price"/>
+        <br /><br />
+        <input type="text" placeholder="enter the country" name="country"/>
+        <br /><br />
+        <input type="text" placeholder="enter the location" name="location"/>
+        <br /><br />
+        <button>Add</button>
+    </form> -->
+
+        <!-- New way to send Value from Name field -->
+        <!-- Saare variables ko mai object ko field Bana de rha hu  -->
+        <!-- Variables are like my title, description, image, price, country, location  
+        to mai in sbko object ki field bna dunga 
+        Object ki field bne ke baaad ye kuch aise dikenge
+        listing[title]
+        listing[descrition]
+        listing[image]
+        listing[price]
+        listing[country]
+        listing[location]
+    -->
+
+    <div class="row">
+        <div class="col-8 offset-2">
+            <br>
+            <h3>Create a new Listing</h3>
+            
+            <form method="POST" action="/listings" novalidate  class="needs-validation">
+                <div class="mb-3" >
+                    <label for="title" class="form-label" >Title</label>
+                    <input type="text" placeholder="enter the title" name="listing[title]"  class="form-control" required />
+                    <div class="invalid-feedback" >No Title is Wriiten</div>
+                    <div class="valid-feedback" >Title Looks good!</div>
+                </div>
+                <div class="mb-3" >
+                    <label for="dexcription" class="form-label" >Description</label>
+                    <textarea placeholder="enter the description" name="listing[description]" class="form-control" required ></textarea>
+                    <div class="invalid-feedback" >Please enter a short description</div>
+                </div>
+                <div class="mb-3" >
+                <label for="image" class="form-label" >Image Link</label>
+                <input type="text" placeholder="enter the image URL/LINK" name="listing[image]" class="form-control"/>
+            </div>
+            <div class="row">
+                <div class="mb-3 col-md-4" >
+                    <label for="price" class="form-label" >Price</label>
+                    <input type="number" placeholder="enter the price" name="listing[price]" class="form-control" required />
+                    <div class="invalid-feedback" >Price should be valid</div>
+                </div>
+                <div class="mb-3  col-md-8 ">
+                    <label for="country" class="form-label" >Country</label>
+                    <input type="text" placeholder="enter the country" name="listing[country]" class="form-control" required />
+                    <div class="invalid-feedback" >Country name should be valid</div>
+                </div>
+            </div>
+            <div class="mb-3" >
+                <label for="location" class="form-label" >Location</label>
+                <input type="text" placeholder="enter the location" name="listing[location]" class="form-control" required />
+                <div class="invalid-feedback" >Location should be valid</div>
+            </div>
+            <br >
+            <button class="btn btn-dark add-btn " >Add</button>
+            <br>
+        </form>
+            <br>
+            <br>
+    </div>
+    </div>

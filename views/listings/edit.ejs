@@ -1,0 +1,44 @@
+<% layout("/layouts/boilerPlate.ejs") %>
+
+    <div class="row">
+        <div class="col col-8 offset-2 mt-3">
+            <h3>Edit page</h3>
+            <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" novalidate  class="needs-validation">
+                <div class="mb-3" >
+                    <label for="title" class="form-label" >Title</label>
+                    <input type="text" value="<%= listing.title%> " name="listing[title]" class="form-control" required />
+                    <div class="invalid-feedback" >No Title is Wriiten</div>
+                    <div class="valid-feedback" >title looks good!</div>
+            </div>
+            <div class="mb-3" >
+                <label for="description" class="form-label" >Description</label>
+                <textarea type="text" name="listing[description]" class="form-control" required ><%= listing.description %></textarea>
+                <div class="invalid-feedback" >No Description is Wriiten</div>
+            </div>
+            <div class="mb-3" >
+                <label for="image" class="form-label" >Image</label>
+                <input type="text" value="<%= listing.image %>" name="listing[image]" class="form-control" required />
+                <div class="invalid-feedback" >No Image URL is Wriiten</div>
+            </div>
+            <div class="row">    
+                <div class="mb-3 col-md-4 " >
+                    <label for="price" class="form-label" >Price</label> 
+                    <input type="number" value="<%= listing.price %>" name="listing[price]" class="form-control" required />
+                    <div class="invalid-feedback" >Price should be mention</div>
+                </div>
+                <div class="mb-3 col-md-8 " >
+                    <label for="country" class="form-label" >Country</label>
+                    <input type="text" value="<%= listing.country %>" name="listing[country]" class="form-control" required />
+                    <div class="invalid-feedback" >Country name shoud be mention</div>
+                </div>
+            </div>
+            <div class="mb-3" >
+                <label for="location" class="form-label" >Location</label>
+                <input type="text" value="<%= listing.location %>" name="listing[location]" class="form-control" required />
+                <div class="invalid-feedback" >Location name should be mention</div>
+            </div>
+            <button class="btn edit-btn btn-dark mt-3" >Edit</button>
+        </form>
+        <br><br>
+    </div>
+</div>
