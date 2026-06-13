@@ -173,6 +173,14 @@ app.delete("/listings/:id", wrapAsync(async (req, res) => {
     res.redirect("/listings");
 }));
 
+//delete the review
+app.delete("/listings/:id/reviews/:reviewId", wrapAsync(async(req, res) => {
+    let {id, reviewId} = req.params;
+    await Listing.findByIdAndUpdate(id, {$pull: {reviews: reviewId}});
+    await Review.findByIdAndDelete(reviewId);
+    res.redirect(`/listings/${id}`);
+}))
+
 
 //If the Routes didn't match with above routes then it come in this route
 // app.all("/:pathMatch(*)", (req, res, next) => {

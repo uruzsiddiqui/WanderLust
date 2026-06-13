@@ -57,6 +57,9 @@
                             <h5 class="card-title" >Jane Boe</h5>
                             <p class="card-text" > <%= review.comment %> </p>
                             <p class="card-text" > <%= review.rating %> </p>
+                            <form method="post" class="mb-3" action="/listings/<%=listing.id%>/reviews/<%=review.id%>?_method=DELETE" >
+                                <button class="btn btn-sm btn-dark" >Delete </button>
+                            </form>
                         </div>
                     </div>           
                     <% } %>
